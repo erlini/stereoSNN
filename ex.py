@@ -797,7 +797,7 @@ def run_experiment_pendulum(with_visualization=False):
 
     """
     experiment_name = "Pendulum30"
-    experiment_duration = 10000  # in ms
+    experiment_duration = 1000  # in ms
     time_step = 0.2
     dx = 72  # in pixels
     dy = 84  # in pixels
