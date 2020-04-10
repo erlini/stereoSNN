@@ -801,13 +801,13 @@ def run_experiment_pendulum(with_visualization=False):
     time_step = 0.2
     dx = 72  # in pixels
     dy = 84  # in pixels
-    #max_d = 42  # in pixels
-    max_d = 10  # in pixels
+    max_d = 42  # in pixels
+    #max_d = 10  # in pixels
     crop_xmin = 32  # in pixels
     crop_ymin = 22  # in pixels
 
     # Setup the simulation
-    Simulation = SNNSimulation(simulation_time=experiment_duration,simulation_time_step=time_step, threads_count=8)
+    Simulation = SNNSimulation(simulation_time=experiment_duration,simulation_time_step=time_step, threads_count=16)
 
     # Define the input source
     path_to_input = os.path.join(os.path.dirname(os.path.realpath(__file__)),
