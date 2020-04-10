@@ -801,7 +801,8 @@ def run_experiment_pendulum(with_visualization=False):
     time_step = 0.2
     dx = 72  # in pixels
     dy = 84  # in pixels
-    max_d = 42  # in pixels
+    #max_d = 42  # in pixels
+    max_d = 10  # in pixels
     crop_xmin = 32  # in pixels
     crop_ymin = 22  # in pixels
 
