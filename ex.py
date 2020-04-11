@@ -791,19 +791,19 @@ class SNNSimulation(object):
         ps.end()
 
 
-def run_experiment(with_visualization=False):
+def run_experiment():
     """
     TODO: add experiment description.
 
     """
-    experiment_name = "Pendulum30"
-    experiment_duration = 2000  # in ms
+    experiment_name = "butterfly_distance2_DAVIS"
+    experiment_duration = 1000  # in ms
     time_step = 0.2
-    dx = 72  # in pixels
-    dy = 84  # in pixels
-    max_d = 42  # in pixels
-    crop_xmin = 32  # in pixels
-    crop_ymin = 22  # in pixels
+    dx = 240  # in pixels
+    dy = 180  # in pixels
+    max_d = 40  # in pixels
+    crop_xmin = 0  # in pixels
+    crop_ymin = 0  # in pixels
     is_rawdata_time_in_ms = True
     
     # Setup the simulation
@@ -811,7 +811,7 @@ def run_experiment(with_visualization=False):
 
     # Define the input source
     path_to_input = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                 "./data/input/pendulum_left_30cm_2.tsv.npz")
+                                 "./data/input/butterfly_distance2_DAVIS.dat")
     ExternalRetinaInput = ExternalInputReader(file_path=path_to_input,
                                               dim_x=dx,
                                               dim_y=dy,
@@ -843,24 +843,13 @@ def run_experiment(with_visualization=False):
     # Start the simulation
     Simulation.run()
 
-    RetinaL.get_spikes()
-    RetinaR.get_spikes()
+    #RetinaL.get_spikes()
+    #RetinaR.get_spikes()
 
     # Store the results in a file
     SNN_Network.get_spikes(sort_by_time=True, save_spikes=True)
 
     # Finish the simulation
     Simulation.end()
-
-    if with_visualization:
-        from visualizer import Visualizer
-        network_dimensions = SNN_Network.get_network_dimensions()
-        #     network_dimensions = {'dim_x':dx, 'dim_y':dy, 'min_d':0, 'max_d':max_d}
-        viz = Visualizer(network_dimensions=network_dimensions,
-                         experiment_name=experiment_name,
-                         spikes_file="./spikes/Pendulum30_0_spikes.dat")
-        # viz.microensemble_voltage_plot(save_figure=True)
-        viz.disparity_histogram(over_time=True, save_figure=True)
-        # viz.scatter_animation(dimension=3, save_animation=True, rotate=True)
 
 run_experiment()
