@@ -791,21 +791,21 @@ class SNNSimulation(object):
         ps.end()
 
 
-def run_experiment_pendulum(with_visualization=False):
+def run_experiment(with_visualization=False):
     """
     TODO: add experiment description.
 
     """
     experiment_name = "Pendulum30"
-    experiment_duration = 1000  # in ms
+    experiment_duration = 2000  # in ms
     time_step = 0.2
     dx = 72  # in pixels
     dy = 84  # in pixels
     max_d = 42  # in pixels
-    #max_d = 10  # in pixels
     crop_xmin = 32  # in pixels
     crop_ymin = 22  # in pixels
-
+    is_rawdata_time_in_ms = True
+    
     # Setup the simulation
     Simulation = SNNSimulation(simulation_time=experiment_duration,simulation_time_step=time_step, threads_count=16)
 
@@ -821,7 +821,7 @@ def run_experiment_pendulum(with_visualization=False):
                                               crop_ymax=crop_ymin + dy,
                                               sim_time=experiment_duration,
                                               sim_time_step=time_step,
-                                              is_rawdata_time_in_ms=False)
+                                              is_rawdata_time_in_ms=is_rawdata_time_in_ms)
     # Create two instances of Retinas with the respective inputs
     RetinaL = Retina(label="RetL", dimension_x=dx, dimension_y=dy,
                      spike_times=ExternalRetinaInput.retinaLeft,
@@ -863,4 +863,4 @@ def run_experiment_pendulum(with_visualization=False):
         viz.disparity_histogram(over_time=True, save_figure=True)
         # viz.scatter_animation(dimension=3, save_animation=True, rotate=True)
 
-run_experiment_pendulum()
+run_experiment()
