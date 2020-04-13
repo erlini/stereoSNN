@@ -797,7 +797,7 @@ def run_experiment():
 
     """
     experiment_name = "fans"
-    experiment_duration = 3000  # in ms
+    experiment_duration = 1000  # in ms
     time_step = 0.2
     dx = 92  # in pixels
     dy = 92  # in pixels
