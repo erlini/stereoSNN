@@ -796,22 +796,22 @@ def run_experiment():
     TODO: add experiment description.
 
     """
-    experiment_name = "butterfly_distance2_DAVIS"
-    experiment_duration = 1000  # in ms
+    experiment_name = "Pendulum30"
+    experiment_duration = 10000  # in ms
     time_step = 0.2
-    dx = 240  # in pixels
-    dy = 180  # in pixels
-    max_d = 40  # in pixels
-    crop_xmin = 0  # in pixels
-    crop_ymin = 0  # in pixels
-    is_rawdata_time_in_ms = True
+    dx = 72  # in pixels
+    dy = 84  # in pixels
+    max_d = 42  # in pixels
+    crop_xmin = 32  # in pixels
+    crop_ymin = 32  # in pixels
+    is_rawdata_time_in_ms = False
     
     # Setup the simulation
     Simulation = SNNSimulation(simulation_time=experiment_duration,simulation_time_step=time_step, threads_count=16)
 
     # Define the input source
     path_to_input = os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                                 "./data/input/butterfly_distance2_DAVIS.dat")
+                                 "./data/input/pendulum_left_30cm_2.tsv.npz")
     ExternalRetinaInput = ExternalInputReader(file_path=path_to_input,
                                               dim_x=dx,
                                               dim_y=dy,
