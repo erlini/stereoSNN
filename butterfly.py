@@ -798,11 +798,11 @@ def run_experiment():
     experiment_name = "butterfly"
     experiment_duration = 2010  # in ms
     time_step = 0.2
-    dx = 165  # in pixels
-    dy = 67  # in pixels
+    dx = 203  # in pixels
+    dy = 110  # in pixels
     max_d = 30  # in pixels
-    crop_xmin = 40  # in pixels
-    crop_ymin = 60  # in pixels
+    crop_xmin = 2  # in pixels
+    crop_ymin = 17  # in pixels
     is_rawdata_time_in_ms = True
     
     # Setup the simulation
